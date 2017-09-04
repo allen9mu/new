@@ -9,6 +9,7 @@ class Computer(models.Model):
     company_name = models.CharField(max_length = 20)
     computer_model = models.CharField(max_length = 20)
     date_added = models.DateTimeField(auto_now_add= True)
+    IP_ADDRESS = models.CharField(max_length = 20,default="0.0.0.0")
     
     def __str__(self):
         return self.owner 
