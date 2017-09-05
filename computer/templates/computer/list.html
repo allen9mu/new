@@ -1,11 +1,25 @@
 {% extends "base.html" %}
 {% block title %}My Blog{% endblock %}
 {% block content %}
-<h1>My Blog</h1>
-{% for computer in list %}
-<h2>
-{{ computer.owner }}
-</a>
-</h2>
+
+
+    <table width="600" height="300" border="2" cellpadding="0" cellspacing="0" class="tb">
+     <tr>
+       <td>owner </td>
+       <td>date </td>
+       <td>marker</td>
+       <td>model</td>
+     </tr>
+     {% for computer in list %}
+      <tr>
+       <td>{{ computer.owner }}</td>
+       <td> {{ computer.date_made }}</td>
+       <td>{{ computer.company_name }}</td>
+       <td>{{ computer.computer_model }} </td>
+
+     </tr>
 {% endfor %}
+</table>
+
 {% endblock %}
+
