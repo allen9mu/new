@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %} Add Computer{% endblock %}
+{% block content %}
+<h1> Add Computer</h1>
+<form action="{% url 'computer:add_computer' %}" method='post'>
+{% csrf_token %}
+{{ form.as_p }}
+<button name="submit">add</button>
+
+</form>
+
+{% endblock %}
+

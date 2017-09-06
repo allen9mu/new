@@ -3,8 +3,10 @@
 from django import forms
 from .models import     Computer
 
-class ComputerForm(forms.Form):
+class ComputerForm(forms.ModelForm):
     class Meta:
         model = Computer
-        files = {'owner'}
+        fields = ['owner','date_made','company_name','computer_model']
+        #labels = {'owner':'' }
+        
     
