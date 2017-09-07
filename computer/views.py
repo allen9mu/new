@@ -21,3 +21,17 @@ def add_computer(request):
     
     context = {'form': form}
     return render(request,'computer/add.html',context)
+
+
+def index(request):
+    list = Computer.objects.order_by('date_added')
+    if request.method !='POST':
+        form = ComputerForm()
+    else:
+        form = ComputerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse("computer:index"))
+    
+    context = {'form': form}
+    return render(request,'computer/index.html',{'form': form,'list':list} )

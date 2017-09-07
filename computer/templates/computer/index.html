@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Computer List{% endblock %}
+{% block content %}
+<h1> Computer List</h1>
+
+<form action="{% url 'computer:index' %}" method='post'>
+
+{% csrf_token %}
+{{ form.as_p }}
+
+<p><button name="submit">add</button></p>
+
+</form>
+
+
+<p>
+
+    <table width="600" height="300" border="2" cellpadding="0" cellspacing="0" class="tb">
+     <tr>
+       <td>owner </td>
+       <td>date </td>
+       <td>marker</td>
+       <td>model</td>
+     </tr>
+     {% for computer in list %}
+      <tr>
+       <td>{{ computer.owner }}</td>
+       <td> {{ computer.date_made }}</td>
+       <td>{{ computer.company_name }}</td>
+       <td>{{ computer.computer_model }} </td>
+
+     </tr>
+{% endfor %}
+</table>
+</p>
+{% endblock %}
